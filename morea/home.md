@@ -5,34 +5,40 @@ morea_type: home
 published: true
 ---
 
-## Welcome to ICS 199, Fall 2021
+## Welcome to MBIO 612
 
-<div class="alert alert-danger" role="alert" markdown="1">
 
-  <i class="fa-solid fa-circle-exclamation fa-xl"></i> **Warning: this is not a website for a real course.**
-  <hr/>
-  
-  It is actually the "demo" site for the Morea Framework. 
+The course introduces data science in the life sciences. Using the R programming language, students will gain the knowledge, skills, and abilities required for acquiring, processing, modeling, and visualizing tabular data. In addition to learning fundamental data science concepts, students will learn how to organize and structure data build reliable, maintainable R packages, and produce reproducible analyses. 
 
-  See the <a href="https://morea-framework.github.io">Morea Framework Project Site</a> for details.
-</div>
+## Course Objectives
 
-ICS 199 is a four week overview of selected topics in computer science, including Javascript, Open Source Software, and Ethics.
 
-## Who should take this course
+By the end of this course, students will:
 
-This course is intended for undergraduates in computer science or computer engineering who have a working knowledge of at least one programming language and who want to get a taste of important topics in the field.
+  1. Become acquainted with the most popular methods, libraries, and
+  best practices used in 1- data collection and organization, 2- data
+  wrangling, 3- data exploration and visualization, 4- data modeling
+  and interpretation.
+
+  2. Gain experience with data science reproducibility best practices
+  (i.e., software, empirical, and statistical reproducibility) through
+  literate computing with RMarkdown, version control (Github),
+  workflows, and automation.
+
+  3. Become familiar with computing terminology, platforms, and
+  paradigms used to solve data science problems.
+
+You can refer to this [link](https://docs.google.com/document/d/12GSr5Nstd1YhYTAs-hNX7041sUj0D2PUPWUy2g8wt3Y/edit?usp=sharing) for a detailed syllabus.
 
 ## Pedagogy
 
-ICS 199 is structured as a sequential series of [modules](/modules), each taking approximately a week to complete. Each module has the following structure:
+ICS 199 is structured as a sequential series of [modules](/modules) with the the following structure:
 
-  * [Prerequisites](/prerequisites), describing skills you should have prior to starting the module.
   * [Learning outcomes](/outcomes), describing the major goals for the module.
-  * [Readings and other online resources](/readings), providing background material.
+  * [Readings, screencasts and other online resources](/readings), providing background material.
   * [Experiential learning activities](/experiences), providing a structured set of challenges enabling you to acquire mastery of material.
-  * [Assessments](/assessments), which help you determine if you have acquired mastery of the material.
-
+  
 ## About the instructor
 
-[Philip Johnson](https://philipmjohnson.org) is a Professor of Information and Computer Sciences at the University of Hawaii. His research interests include climate change, educational technology, software engineering, and serious games. He is currently an active developer of [RadGrad](https://radgrad.org), an open source software system based on Javascript, Typescript, React, and Meteor.
+[Mahdi Belcaid]() is an Assistant Professor of Information and Computer Sciences and the Hawaii Institute of Marine Biology at the University of Hawaii. His research interests include computation biology, machine learning, AI applications, and big data. He leads the AI implementation for [sage3](https://sage3.sagecommons.org/) collaborative platform.
+

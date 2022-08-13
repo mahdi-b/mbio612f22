@@ -1,21 +1,22 @@
 ---
-title: "Introduction to ICS 199"
+title: "Introduction to MBIO 612"
 published: true
 morea_coming_soon: false
-morea_id: example-introduction
+morea_id: introduction
 morea_outcomes:
-  - outcome-course-structure
+  - outcome-module-1
 morea_readings:
-  - reading-screencast-guided-tour-website
+  - reading-syllabus
+  - reading-screencast-installing-r
   - reading-screencast-guided-tour-introduction
   - reading-screencast-intro
   - reading-how-to-watch-screencasts-the-smart-way
-  - reading-syllabus
 morea_experiences:
-  - experience-environment-configuration
-  - experience-introduce-yourself
-  - experience-learn-the-command-line
+  - experience-installing-R
+  - experience-installing-configuring-andaconda
+  - experience-installing-jupyter
 morea_assessments:
+  - assessment-experience-1
 morea_type: module
 morea_icon_url: /morea/example-introduction/introduction.jpg
 morea_start_date: "2021-07-06"

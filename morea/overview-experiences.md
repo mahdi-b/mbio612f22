@@ -5,6 +5,8 @@ morea_type: overview_experiences
 published: true
 ---
 
-This page collects together all of the "experiences" associated with individual modules. 
+This page collects together all of the "experiences" associated with
+individual modules. Each experience represents a hands-on "active"
+learning opportunity that allows you to put into practice the material
+you learned during the week.
 
-In this site, experiences represent "active" learning opportunities, as opposed to readings, which represent "passive" learning opportunities.  In many courses, readings and experiences together constitute the "assignments". 
