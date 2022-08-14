@@ -8,4 +8,5 @@ morea_sort_order: 1
 
   * You understand the goals, structures, and procedures for MBIO 612
   * Your computer and its software is adequate to support the weekly experiences.
-  
+  * You	are familiar with variables, data types and how functions work in R.
+
