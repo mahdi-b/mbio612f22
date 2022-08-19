@@ -15,6 +15,8 @@ Download a copy of the following [Jupyter
 Notebook](media/experience_1.ipynb). Use the Jupyter environment (via
 Anaconda) to open the notebook and answer the questions it contains.
 
+VIDEO COMING SOON.
+
 
 ## Submission instructions
 

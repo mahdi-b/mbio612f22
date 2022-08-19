@@ -10,4 +10,3 @@ morea_labels:
 # What is the R?
 
 [A short overview of the R environment](https://www.r-project.org/about.html)
-

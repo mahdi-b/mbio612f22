@@ -12,7 +12,7 @@ morea_experiences:
 morea_assessments:
   - assessment-experience-2
 morea_type: module
-morea_icon_url: /morea/1_introduction/introduction.jpg
+morea_icon_url: /morea/2_data_structures_intro/data_structure.jpg
 morea_start_date: "2022-08-29"
 morea_end_date: "2022-09-02"
 morea_labels:

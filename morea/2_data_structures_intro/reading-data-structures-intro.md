@@ -10,6 +10,6 @@ morea_labels:
 
 # Data Structures 
 
-* Read the sections pertaining to vectors (5.1), lists (5.7), dataFrames (5.8) from [Hands-on Programming with R](https://rstudio-education.github.io/hopr/)
+* Read the sections pertaining to vectors (5.1), lists (5.7), dataFrames (5.8) of [Hands-on Programming with R](https://rstudio-education.github.io/hopr/)
 
 
