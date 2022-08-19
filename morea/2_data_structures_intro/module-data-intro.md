@@ -1,11 +1,12 @@
 ---
-title: "Introduction to Data Science and Brief Overview of R"
+title: "Vectors, Matrices, Data Frames and Lists"
 published: true
 morea_coming_soon: false
 morea_id: module-data-intro
 morea_outcomes:
   - outcome-module-2
 morea_readings:
+  - reading-notes-mod-2
   - reading-data-structures-intro
   - reading-intro-factors
 morea_experiences:

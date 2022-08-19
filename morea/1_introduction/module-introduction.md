@@ -6,6 +6,7 @@ morea_id: introduction
 morea_outcomes:
   - outcome-module-1
 morea_readings:
+  - reading-notes
   - reading-syllabus
   - reading-the-very-basics
   - reading-screencast-introduction-to-R
@@ -13,7 +14,7 @@ morea_readings:
 morea_experiences:
   - experience-installing-R
   - experience-installing-jupyter  
-  - experience-installing-configuring-andaconda
+  - experience-configuring-andaconda
   - experience-exploring-jupyter  
   - experience-exploring-R
 morea_assessments:

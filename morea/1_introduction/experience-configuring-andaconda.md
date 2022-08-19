@@ -1,7 +1,7 @@
 ---
 title: "Configuring Anaconda"
 published: true
-morea_id: experience-installing-configuring-andaconda
+morea_id: experience-configuring-andaconda
 morea_type: experience
 morea_summary: "Adding and configuring the R Kernel in Anaconda"
 morea_sort_order: 1

@@ -10,9 +10,7 @@ morea_labels:
 
 # Using Factors
 
-* Read section (5.2) of [Hands-on Programming with R](https://rstudio-education.github.io/hopr/) to understand how R
-  uses factors to store categorical information.
-
+* Read section (5.2) of [Hands-on Programming with R](https://rstudio-education.github.io/hopr/) to get insight into how R uses factors to store categorical information
 
 
 
