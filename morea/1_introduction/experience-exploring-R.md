@@ -11,7 +11,7 @@ morea_labels:
 
 # Exploring R
 
-Download a copy of the following [JupyterNotebook](media/Week_1_pracitcal.ipynb). Use the Jupyter environment (via Anaconda) to open the notebook and answer the questions it contains.
+Download a copy of the following [Jupyter Notebook](media/Week_1_pracitcal.ipynb). Use the Jupyter environment (via Anaconda) to open the notebook and answer the questions it contains.
 
 If you're using RStudio, you can use the following [file](media/Week_1_pracitcal.Rmd).
 
