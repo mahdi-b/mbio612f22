@@ -6,7 +6,7 @@ morea_type: experience
 morea_summary: Exploring basic R concepts
 morea_sort_order: 1
 morea_labels:
-  - Jupyter Notebook
+  - video
 ---
 
 # Exploring R
