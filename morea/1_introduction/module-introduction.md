@@ -9,7 +9,6 @@ morea_readings:
   - reading-notes
   - reading-syllabus
   - reading-the-very-basics
-  - reading-screencast-introduction-to-R
   - reading-what-is-r
 morea_experiences:
   - experience-installing-R
