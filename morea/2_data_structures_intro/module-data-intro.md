@@ -10,6 +10,7 @@ morea_readings:
   - reading-data-structures-intro
   - reading-intro-factors
 morea_experiences:
+  - experience-data-structures
 morea_assessments:
   - assessment-experience-2
 morea_type: module
@@ -20,6 +21,5 @@ morea_labels:
 morea_sort_order: 2
 ---
 
-This module introduces you to the basic data formats in data science and R data structures, which are fundamental for managing data effectively and doing meaningful data science. 
-
+You will learn about the basic data structures in R, which are essential for managing data efficiently and doing meaningful data science. 
 

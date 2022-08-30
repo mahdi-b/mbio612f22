@@ -11,3 +11,8 @@ morea_labels:
 
 Here is a brief description of the tasks you need to complete for module 2
 
+* Read the [brief intro to data structures in R](reading-data-structures-intro.html)
+* Read the introduction to factors [here](reading-intro-factors.html)
+* Watch the video on data structures in R (available after the weekly online session)
+* Complete the [following experience]()
+
