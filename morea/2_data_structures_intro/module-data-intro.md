@@ -9,6 +9,8 @@ morea_readings:
   - reading-notes-mod-2
   - reading-data-structures-intro
   - reading-intro-factors
+  - reading-github
+  - reading-packages-libraries
 morea_experiences:
   - experience-data-structures
 morea_assessments:
