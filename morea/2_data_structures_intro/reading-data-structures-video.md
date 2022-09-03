@@ -6,6 +6,7 @@ morea_summary: "Brief introduction to the fundamental data structures in R"
 morea_type: reading
 morea_sort_order: 2
 morea_labels:
+  - video
 ---
 
 # Data Structures 
