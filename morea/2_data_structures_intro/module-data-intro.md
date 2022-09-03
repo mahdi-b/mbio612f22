@@ -8,6 +8,7 @@ morea_outcomes:
 morea_readings:
   - reading-notes-mod-2
   - reading-data-structures-intro
+  - reading-data-structures-video
   - reading-intro-factors
   - reading-github
   - reading-packages-libraries
