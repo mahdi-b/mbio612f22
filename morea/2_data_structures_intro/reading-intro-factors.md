@@ -6,6 +6,7 @@ morea_summary: "Using Factors to store categorical Information"
 morea_type: reading
 morea_sort_order: 2
 morea_labels:
+  - book chapter
 ---
 
 # Using Factors
