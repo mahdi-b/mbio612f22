@@ -10,6 +10,8 @@ morea_labels:
 
 # Data Structures 
 
-* Complete the  [following experience](resources/data_structures_in_r.ipynb) and  
+* Complete the  [following experience](resources/data_structures_in_r.ipynb)
+* Use the [following R Markdow file](resources/data_structures_in_r.Rmd) is workon RStudio
+
 * submit it to your Github account under a folder named `2_data_structures_intro`
 
