@@ -10,4 +10,4 @@ morea_labels:
 ---
 
 
-See the [video]() for specifics on how to use `ggplot2` to visualize your data
+See the [video](https://vimeo.com/manage/videos/748299092) for specifics on how to use `ggplot2` to visualize your data
