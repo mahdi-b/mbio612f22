@@ -1,5 +1,5 @@
 ---
-title: "Introduction to ggplot"
+title: "Data Disualization"
 published: true
 morea_id: reading-chapter-ggplot
 morea_summary: "Data visualisation with ggplot"

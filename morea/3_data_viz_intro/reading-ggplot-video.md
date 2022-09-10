@@ -8,6 +8,6 @@ morea_sort_order: 2
 morea_labels:
   - video
 ---
-
+<br/>
 
 See the [video](https://vimeo.com/manage/videos/748299092) for specifics on how to use `ggplot2` to visualize your data
