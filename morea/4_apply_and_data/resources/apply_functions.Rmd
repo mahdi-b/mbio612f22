@@ -1,0 +1,320 @@
+---
+title: An R Markdown document converted from "apply_functions.ipynb"
+output: html_document
+---
+
+### `apply` family of functions
+
+* `Apply` family of functions apply some functionality to data
+  * Similar, but faster than for loops
+  * Leverage hardware parallelism (CPU cores)
+  * Concise code that easier to read, understand and maintain
+
+* there is exist differen types of apply
+  * `apply`, `lapply`, `sapply`, `tapply`, `vapply`, and `mapply`.
+    *  Won't cover the last two
+  * Provide slightly different behaviors on different input data types.
+
+### `apply()` 
+
+```apply(X, MARGIN, FUN, ...)```
+
+* `X`: Matrix or array 
+
+* `MARGIN`: represents the axis along which the computation is carried out
+    * `magin = 1` -> compute function independently for each row 
+    * `magin = 2` -> compute function independently for each column 
+    
+* `FUN`: function to apply to elements     
+
+![Description MARGIN](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Apply+Tutorial+R/content_content_apply_1.png)
+
+
+```{r}
+my_matrix <- matrix(c(1:15), nrow = 5)
+print(my_matrix)
+```
+
+```{r}
+# print a single row
+print(my_matrix[1,])
+```
+
+```{r}
+# sum the values of single row
+sum(my_matrix[1, ])
+```
+
+```{r}
+# sum the values of all rows
+row_1_sum = sum(my_matrix[1, ]) 
+row_2_sum = sum(my_matrix[2, ])
+row_3_sum = sum(my_matrix[3, ])
+row_4_sum = sum(my_matrix[4, ])
+row_5_sum = sum(my_matrix[5, ])
+print("Manually summing rows of my_matrix:")
+print(c(row_1_sum, row_2_sum, row_3_sum, row_4_sum, row_5_sum))
+print("Sum using apply to each row of my_matrix:")
+print(apply(my_matrix, 1 , sum))
+```
+
+```{r}
+# sum the values of all rows
+col_1_sum = sum(my_matrix[, 1]) 
+col_2_sum = sum(my_matrix[, 2])
+col_3_sum = sum(my_matrix[, 3])
+print("Manually summing rows of my_matrix:")
+print(c(col_1_sum, col_2_sum, col_3_sum))
+print("Sum using apply to each row of my_matrix:")
+print(apply(my_matrix, 2 , sum))
+
+```
+
+```{r}
+print("Apply mean column wise")
+print(apply(my_matrix, 2, mean))
+
+print("Apply std column wise")
+print(apply(my_matrix, 2, sd))
+```
+
+### `apply` reduce versus mapping the data
+
+* Some operations reduce data
+  * `sum(v)` -> returns a single value that represents `v`
+  * e.g.: `sum(c(1,2,3,4))` return `10`
+* Some operations map values to new values
+  * ex. `sqrt(v)` -> return a new vector of the same size as `v` 
+  * e.g.: `sqrt(c(1, 4,9,16,25))` return `c(1,2,3,4,5)`
+* Typically mappers can be applied directly to a matrix
+
+```{r}
+print(sqrt(my_matrix))
+print("-----------------------------")
+print(apply(my_matrix, 2, sqrt))
+```
+
+### `lapply`, and `sapply`
+
+* `lapply`, `sapply` apply a function through a variable containing a `list` or a `vector`
+* No concept of `MARGIN` or axis since data does not have a second dimension 
+
+* Given a vector `a`, `lapply(a, FUN)` is different `FUN(a)`
+* `lapply(a, FUN)` is similar to `FUN(a[1])`, `FUN(a[2])`, `...`
+
+* Given a list `a`, `lapply(a, FUN)` is different `FUN(a)`
+* `lapply(a, FUN)` is similar to `FUN(a[[1]])`, `FUN(a[[2]])`, `...`
+
+
+### Difference between `lapply`, `sapply`, and `vapply`
+
+* `lapply` returns a **L**ist
+
+* `sapply` **S**implifies the returned structure (vector instead of list)
+
+```{r}
+a = c(1,2,3,4,5)
+print("For sum(a), the result is")
+sum(a)
+print("For lapply(a, sum), the result is")
+print(lapply(a, sum))
+```
+
+```{r}
+x = list(c(1,2,3), 17, "John")
+print(x)
+```
+
+```{r}
+my_list = list( "Holophagae" = c("Holophagales", "canthopleuribacterales"),
+                "Thermoanaerobaculia"= c("Thermoanaerobaculales"),
+                "Acidobacteriia" = c("Acidobacteriales", "Bryobacterales", "Candidatus Acidoferrales"),
+              date = "09/14/2021")
+print(my_list)
+```
+
+```{r}
+lapply(my_list, length)
+```
+
+```{r}
+some_list = list(c(1:3), c(4:8), c(1:5))
+print(some_list)
+```
+
+```{r}
+str(some_list[[1]])
+```
+
+```{r}
+sum_list_elem_1 = sum(some_list[[1]])
+sum_list_elem_2 = sum(some_list[[2]])
+sum_list_elem_3 = sum(some_list[[3]])
+
+print("Manually summing elements of list")
+print(list(sum_list_elem_1, sum_list_elem_2, sum_list_elem_3))
+print("Sum using apply to each element of the list:")
+print(lapply(some_list, sum))
+```
+
+```{r}
+sum_list_elem_1 = sum(some_list[[1]])
+sum_list_elem_2 = sum(some_list[[2]])
+sum_list_elem_3 = sum(some_list[[3]])
+
+print("Manually summing elements of list")
+print(c(sum_list_elem_1, sum_list_elem_2, sum_list_elem_3))
+
+
+print("Sum using apply to each element of the list:")
+print(sapply(some_list, sum))
+```
+
+### `lappy` and element indexing
+
+* You can use the selection operator '[' to index into a list or a matrix
+ * The format is `lapply(list, '[', row_num_or_empty, col_num_or_empyt)`
+ 
+
+```{r}
+some_list = list(c(1,2,3,4), c(5,6,7,8,9.10), c(11,12))
+print("the third element of each vector in the list is:")
+lapply(some_list, '[', 1)
+```
+
+```{r}
+some_list = list(matrix(1:4, nrow=2), matrix(6:17, nrow=4), matrix(3:11, ncol=3, byrow=TRUE))
+print(some_list)
+```
+
+```{r}
+print(lapply(some_list, '[', 1, ))
+```
+
+```{r}
+lapply(some_list, '[', , 2)
+```
+
+### `tapply`
+
+* Applies a function to a subset of the vector broken down by a given factor variable.
+  * Split the vector of interest according to some variable of interest
+  * Compute function on resulting subgroups
+
+```{r}
+some_matrix <- matrix(c(1:10, 11:20, 21:30), nrow=10)
+my_df <- as.data.frame(some_matrix)
+colnames(my_df) = c("colA", "colB", "colC")
+print(my_df)
+```
+
+```{r}
+my_df = cbind("indicator"= c("A","A","A", "A", "A", "B", "B", "B", "B", "B"), my_df)
+print(my_df)
+```
+
+```{r}
+print(tapply(my_df$colA, my_df$indicator, mean))
+```
+
+```{r}
+res = tapply(my_df$colA, my_df$indicator, mean)
+
+print(res["A"] ** 2)
+             
+```
+
+### `mapply()`
+
+* Stands for the `multivariate` apply. 
+
+  * Runs a FUN for a vector of inputs for each of its parameters.
+
+`mapply(FUN, LIST_OF_ITERATIVE_PARAMS_1 , LIST_OF_ITERATIVE_PARAMS_2, ...)`
+
+* `LIST_OF_ITERATIVE_PARAMS_1` is the list of params that FUN will use as a value for some PARAM_1
+
+* `LIST_OF_ITERATIVE_PARAMS_2` is the list of params that FUN will use as a value for some PARAM_2
+* etc.
+
+* The resulting data structure depends on the output
+  * If different number of cols -> `list`
+  * If the same number of rows and data type  -> `matrix`
+
+```{r}
+print(1:10)
+```
+
+```{r}
+print("Sequence from 1 to 10 by increments of 1")
+print(seq(1, 10))
+
+print("Sequence from 1 to 10 by increments of 2")
+print(seq(1, 10, by=2))
+print(seq(1, 10, 2))
+```
+
+```{r}
+print(seq(from=1, to=10, by=2))
+```
+
+```{r}
+# instead of seq(1, 10), seq(2, 10) and seq(3, 10)
+# we write mapply(seq, c(1,2,3,4,5), 10)
+print(mapply(seq, from=c(0,2,3), to=10, by =2))
+#Equivalent to
+mapply(seq, from=0, to=10, by =2)
+mapply(seq, from=2, to=10, by =2)
+mapply(seq, from=3, to=10, by =2)
+```
+
+```{r}
+# or instead seq(1, 10), seq(2, 11) and seq(3, 12)
+print(mapply(seq, from=c(1,2,3), to=10, by =c(1,2,3)))
+```
+
+```{r}
+print(mapply(seq, from=c(0,2,3), to=c(10,12,13), by =c(1,1,1)))
+```
+
+### Using Custom Functions
+
+* Any function of the `apply` family can take a custom function
+* The custom function should take as input the element the `apply` function operates on
+
+For example, given:
+
+```
+apply(some_matrix, 1, some_function)
+```
+
+* We should assume that some function can take a whole row since we're using `1` as the marine here. 
+
+```{r}
+sum_of_square = function(x){
+    # returns the sum of square of the input x
+    # works with x a vector or single value since sum(x) == x.
+    square_x = x ^ 2
+    sum(square_x)
+}
+print("sum_of_square of c( 1, 2 , 3) is")
+print(sum_of_square(c(1,2,3))) # 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14
+
+
+print("sum_of_square of 5 is")
+print(sum_of_square(5)) # 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14
+```
+
+```{r}
+my_matrix = mapply(rep, 1:3, 3)
+print(my_matrix)
+```
+
+```{r}
+apply(my_matrix, 1, sum_of_square)
+```
+
+```{r}
+sapply(c(1,2,3,4), sum_of_square)
+```
+
