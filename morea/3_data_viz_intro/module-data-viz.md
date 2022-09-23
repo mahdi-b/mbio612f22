@@ -11,7 +11,7 @@ morea_readings:
   - reading-ggplot-video
   - reading-exploratory-data-analysis
 morea_experiences:
-  - experience-data-viz-ggplot2
+  - assessment-experience-3
 morea_assessments:
 
 morea_type: module

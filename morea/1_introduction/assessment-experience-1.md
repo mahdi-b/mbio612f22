@@ -9,7 +9,7 @@ morea_type: assessment
 morea_labels:
 morea_start_date: 
 morea_sort_order: 2
-morea_chartjs_data: '[0, 0, 0]'
+morea_chartjs_data: '[20, 1, 0]'
 morea_chartjs_labels: '["Excellent", "Satisfactory", "Unsatisfactory"]'
 morea_chartjs_colors: '["green", "yellow", "red"]'
 ---
