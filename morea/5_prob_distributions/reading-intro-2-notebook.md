@@ -10,3 +10,5 @@ morea_labels:
 ---
 
 [This notebook](./resources/Poisson_and_neg_binom.ipynb) two other probability distributions, the Poisson and the negative binomial distributions.
+
+The Rmd file can be obtained [here](./resources/Poisson_and_neg_binom.Rmd)

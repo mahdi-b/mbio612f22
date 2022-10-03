@@ -12,7 +12,7 @@ morea_experiences:
   - experience-prob-distributions
 morea_assessments:
 morea_type: module
-morea_icon_url: /morea/4_apply_and_data/apply.jpg
+morea_icon_url: /morea/5_prob_distributions/prob_dist.jpg
 morea_start_date: "2022-09-19"
 morea_end_date: "2022-9-30"
 morea_sort_order: 5
