@@ -10,3 +10,5 @@ morea_labels:
 ---
 
 [This notebook](./resources/proba_binom_normal.ipynb) introduces topics that are fundamental to understanding probability distributions and presents the two most fundamental probability distributions, the Guassian and binomial distributions
+
+The Rmd file can be obtained [here](./resources/proba_binom_normal.Rmd)
