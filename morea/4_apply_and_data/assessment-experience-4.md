@@ -1,0 +1,132 @@
+---
+title: "Apply Family of Functions and and Tidy data"
+published: true
+morea_id: assessment-experience-4
+morea_summary: "Experience Assessment"
+morea_outcomes_assessed:
+ - outcome-module-3
+morea_type: assessment
+morea_labels:
+morea_start_date: 
+morea_sort_order: 2
+morea_chartjs_data: '[11, 5, 3]'
+morea_chartjs_labels: '["Excellent", "Satisfactory", "Unsatisfactory"]'
+morea_chartjs_colors: '["green", "yellow", "red"]'
+---
+# A01: Assessment of simple Javascript skills
+
+## Summary of results
+
+
+{%  include assessment-chartjs.html  %}
+
+## Feedback
+
+* Although we haven't covered if-else, some of you chose to use it for the option question. In this case, I asked to use the `assertthat` package, which is specifically designed to assert that conditions are met. Please take a look at the [package Github page](https://github.com/hadley/assertthat) to learn how it works.
+
+* Regarding the last question. The tables can be changed in a number of ways but separating UH and HPU is not a good idea these are valid variables (e.g. location) of our data. I think everyone got the fact that we need to at least separate the taxonmy into distinct comlumns. those who didn't I strongly encourage you to read the TIDY data section 
+A less obvious option is to create separate files for Genus and Species. Thus, each combination of Genus, Species and Common Name would have a single entry in the second table. Only the `Common Name` would be included in the first table. To get the Genus and the Species, we could merge (join) the two files.
+
+   * Can we include UH and HPU  counts as possible columns?
+
+* Formatting code seems to still be an issue for some. Below are the comments that I provided for the previous experience. I find that they're still relevant for some. Please make sure you follow these basic stylistic guidelines. I will cover the topic in more detail this coming week.
+
+0. Please *do not* include very long outputs that spand dozens or hundreds of lines. Use `head` to show large data structures!
+
+1. Use parenthesis sparingly. There is no need to put parenthesis around a single variable. For example, the following
+```
+y_axis<-(x_axis^2 + 2*(x_axis) + 3)
+```
+can be simply written as
+```
+y_axis <- x_axis^2 + 2 * x_axis + 3
+```
+
+2. use spaces around operators and after commas and be consistent about it. For example, the following
+```
+solar_r_may<-subset(airquality,Month==5)$Solar.R
+```
+Should be written as
+```
+solar_r_may <- subset(airquality, Month==5)$Solar.R
+```
+
+Note that spaces are needed around the = sign in function calls. So the following
+```
+plot(x=x_axis,y = y_axis,xlab = "x axis",ylab= "y axis", main="My Cool Plot",size=(0.5))
+```
+should be written as:
+```
+plot(x=x_axis, y=y_axis, xlab="x axis", ylab="y axis", main="My Cool Plot", size=(0.5))
+```
+
+3. I strongly suggest that a cell prints only one "thing". If you want to print two pieces of info. Use two cell. For examp
+```
+missing_Solar.R <- is.na(airquality$Solar.R)
+airquality[missing_Solar.R,]
+solar_r_may <- subset(airquality, Month==5)$Solar.R
+solar_r_may
+maymean<- mean(solar_r_may, na.rm = TRUE)
+maymean
+mayNA<-subset(airquality, (Month==5) & (missing_Solar.R))
+mayNA$Solar.R[is.na(mayNA$Solar.R)] <- maymean
+mayNA
+```
+
+in the above, lines 2, 4, 6 and 9 print something making the output Huge and hard to parse and understand. Instead, you should split this cell into the following cells:
+
+  * Cell 1
+```R
+missing_Solar.R <- is.na(airquality$Solar.R)
+airquality[missing_Solar.R,]
+```
+
+  * Cell 2
+```R
+solar_r_may <- subset(airquality, Month==5)$Solar.R
+solar_r_may
+```
+
+  * Cell 3
+```R 
+maymean<- mean(solar_r_may, na.rm = TRUE)
+maymean
+```
+
+  * Cell 4
+```R
+mayNA<-subset(airquality, (Month==5) & (missing_Solar.R))
+mayNA$Solar.R[is.na(mayNA$Solar.R)] <- maymean
+mayNA
+```
+
+The above makes the code also easier to read and understand since each celle pertains to a few related operations.
+
+
+4. Functions that return vectors do not need to be wrapped in vectors. For example
+
+```R
+x_axis<-c(seq(0,10, by=0.5))
+```
+can be written simply as
+```
+x_axis <- seq(0,10, by=0.5)
+```
+since seq already returns as vector.
+
+
+5. Format ggplot call across multiple lines with the lines after the first one intented. For example:
+```
+ggplot(sizeMass) + geom_point(aes(size, mass)) + geom_smooth(method = "lm", color = "red", se = FALSE)
+Should be written as:
+ggplot(sizeMass) +
+  geom_point(aes(size, mass)) +
+  geom_smooth(method = "lm", color = "red", se = FALSE)
+```
+
+
+## Outcomes
+
+The following outcomes were assessed: {{ page.morea_outcomes_assessed_titles }}
+
+

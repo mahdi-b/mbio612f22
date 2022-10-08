@@ -12,7 +12,7 @@ morea_experiences:
   - experience-apply-functions-reading
   - experience-apply-functions
 morea_assessments:
-
+  - assessment-experience-4
 morea_type: module
 morea_icon_url: /morea/4_apply_and_data/apply.jpg
 morea_start_date: "2022-09-20"
