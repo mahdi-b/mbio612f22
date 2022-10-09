@@ -1,0 +1,215 @@
+---
+title: An R Markdown document converted from "pipes.ipynb"
+output: html_document
+---
+
+### What are Pipes
+
+* Pipes are used in a programming pradigm to chain operations
+   * Output of one operation (function) becomes the input of the next operation (function)
+* Pipes in `R` are represented using the pipe characters `%>%`
+  * The functionality is included in the `magrittr` packagashg
+  * Not part of tidyverse but get uploaded automatically when load `tidyvery`
+  * You can load it explictely using
+```
+library(magrittr)  
+```
+
+```{r}
+library(magrittr)  
+```
+
+### Why use Piping?
+
+* The need to chain operations is common in Data Science
+
+* Given some data, you may want to:
+
+![](https://www.dropbox.com/s/sypx0knvwwk3437/ops_chaining.png?dl=1)
+
+1. `remove_na()`: this function removes the missing values from the data
+2. `normalize_data()`: this function normalized the datas so that mean=0 and std=1
+3. `drop_outliers()`: remove data that is 3 std. deviations from the mean
+
+* These operations need to be run consecutively on the data
+* These three functions do not exist in `R`. We need to write them 
+
+### Why use Piping? - Temp Variables
+
+* Solution 1: creating temporary variables to hold the data
+
+```R
+# we do this first
+data_no_na = remove_na(data)
+# we do this second with the modified data
+data_no_na_nromalized = normalize_data(data_no_na)
+# we do this last with the results from the previous step
+data_no_na_nromalized_no_outliers = drop_outliers(data_no_na_nromalized)
+```
+
+### Why use Piping? - Overwriting Variables
+
+* The aproach above forces you to name each intermediate variable
+  * those intermediate variables are not necessary. They clutter the code and slows down reading and writing
+  * Prone to errors: common to pass the wrong temporary variable
+
+* One way to deal with that is by overwriting the original data
+
+### Why use Piping? - Overwriting Variables
+
+* Solution 1: overwriting the data
+
+```R
+# we do this first
+data = remove_na(data)
+# we do this second with the modified data
+data = normalize_data(data)
+# we do this last with the results from the previous step
+data = drop_outliers(data)
+```
+
+### Why use Piping? - Overwriting Variables
+
+* Less typing and thinking but:
+
+1 Makes debugging painful:
+  * If you make an error you need to run the whole pipeline from the start (e.g.: read data)
+2. Repeating the same var name makes it difficult to understand how it's changing
+  * We wrote `data` 6 times, at least the first approach had a different variable name to explain (document) the operation
+
+### Using the Pipe
+
+* Using %>% we can chain function in a way that does not require intermediate variables
+* The following operation
+`data %>% do_something()`
+translates into take data and pass as a first argument to do_something()
+
+  * It's equivalent to do_something(data)
+
+* we can further chain function and write
+```
+data %>%
+  do_something() "%>%"
+  do_something_else() "%>%"
+```
+This translates into
+1. take data and pass it do_something()
+  * i.e.,  `do_something(data)`
+2. take result of `do_something(data)` and pass it to `do_something_else()`
+      data_1 = do_something(data)
+      data_2 = do_something_else(data_1)
+ 
+* The above does not work when the function creates need to change some variable, as opposed to return data
+
+### Putting it Together
+
+* Using the pipe symbol, our code would look like as follows:
+
+```
+data %>%
+  remove_na() %>%
+  normalize_data() %>%
+  drop_outliers()
+```
+
+* We will write these three function next
+
+```{r}
+remove_na <- function(x){
+    x[!is.na(x)]
+}
+data = c(1,2,NA, 4,NA,6)
+data_no_na = remove_na(data)
+print(data_no_na)
+```
+
+```{r}
+data %>% remove_na()
+```
+
+```{r}
+data_no_na = data %>% remove_na()
+print(data_no_na)
+```
+
+```{r}
+data = rnorm(10, mean=180, sd=3)
+print("data before")
+print(data)
+
+data = round(data, 2)
+print("data after")
+print(data)
+```
+
+```{r}
+data = 10 %>%
+  rnorm( mean=180, sd=3) %>%
+  round(2)
+
+
+mean(data)
+sd(data)
+```
+
+```{r}
+# center the data round 0
+# normalized the sd to be 1
+normalize_data = function(x){
+    (x - mean(x))/sd(x)
+}
+data_normalized = normalize_data(data)
+
+
+round(mean(data_normalized), 2)
+sd(data_normalized)
+```
+
+```{r}
+data_normalized_with_outlier  = c(-100, data_normalized, c(3000, 5000))
+data_normalized_with_outlier
+```
+
+```{r}
+drop_outliers = function(x){
+    is_outlier = abs(x) > 3
+    is_outlier
+}
+
+drop_outliers(data_normalized_with_outlier)
+```
+
+```{r}
+drop_outliers = function(x){
+    is_outlier = abs(x) > 3
+    x[!is_outlier]
+}
+
+drop_outliers(data_normalized_with_outlier)
+```
+
+```{r}
+data = 10 %>%
+  rnorm( mean=180, sd=3) %>%
+  round(2)
+
+data_with_outlier = c(10000, data, 20000)
+data_with_outlier
+```
+
+```{r}
+data %>%
+  remove_na() %>%
+  normalize_data() %>%
+  drop_outliers() %>%
+  round(2)
+```
+
+### When to Use Pipes
+
+* Pipes should be applied to a short sequence of operations
+  * 5 to 6 operations
+  * If longer, create intermediate operations and document the code thoroughly using comments
+
+* This approach only works when you take a single object and return a new copy with some modification
+
