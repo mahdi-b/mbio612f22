@@ -8,6 +8,7 @@ morea_readings:
   - reading-param-hypthesis-tests
   - reading-two-sample-hypothesis-testing
   - reading-pipes
+  - reading-pipes-notebook
 morea_experiences:
   - experience-hypothesis-testing
 morea_assessments:
