@@ -30,14 +30,11 @@ By the end of this course, students will:
 
 You can refer to this [link](https://docs.google.com/document/d/12GSr5Nstd1YhYTAs-hNX7041sUj0D2PUPWUy2g8wt3Y/edit?usp=sharing) for a detailed syllabus.
 
-## Pedagogy
+### Proposing a dataset
 
-ICS 199 is structured as a sequential series of [modules](/modules) with the the following structure:
+Instructions for proposing a dataset can be obtained [here](https://docs.google.com/document/d/1jnDbZorwbFrx-TGNopwxn2nvTvimDi0Z3MSy47yZiKg/edit?usp=sharing)
 
-  * [Learning outcomes](/outcomes), describing the major goals for the module.
-  * [Readings, screencasts and other online resources](/readings), providing background material.
-  * [Experiential learning activities](/experiences), providing a structured set of challenges enabling you to acquire mastery of material.
-  
+
 ## About the instructor
 
 [Mahdi Belcaid]() is an Assistant Professor of Information and Computer Sciences and the Hawaii Institute of Marine Biology at the University of Hawaii. His research interests include computation biology, machine learning, AI applications, and big data. He leads the AI implementation for [sage3](https://sage3.sagecommons.org/) collaborative platform.
