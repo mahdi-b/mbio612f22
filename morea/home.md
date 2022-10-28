@@ -36,7 +36,7 @@ Instructions for proposing a dataset can be obtained [here](https://docs.google.
 
 ### Final Project
 
-Informaiton about the final project can be obtained [here](final_proj.pdf).
+Information about the final project can be obtained [here](https://www.dropbox.com/s/uhshtj59c3t5ms9/final_proj.pdf?dl=1).
 
 
 ### About the instructor
