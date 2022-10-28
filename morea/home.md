@@ -34,8 +34,12 @@ You can refer to this [link](https://docs.google.com/document/d/12GSr5Nstd1YhYTA
 
 Instructions for proposing a dataset can be obtained [here](https://docs.google.com/document/d/1jnDbZorwbFrx-TGNopwxn2nvTvimDi0Z3MSy47yZiKg/edit?usp=sharing)
 
+### Final Project
 
-## About the instructor
+Informaiton about the final project can be obtained [here](final_proj.pdf).
+
+
+### About the instructor
 
 [Mahdi Belcaid]() is an Assistant Professor of Information and Computer Sciences and the Hawaii Institute of Marine Biology at the University of Hawaii. His research interests include computation biology, machine learning, AI applications, and big data. He leads the AI implementation for [sage3](https://sage3.sagecommons.org/) collaborative platform.
 
