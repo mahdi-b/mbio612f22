@@ -1,0 +1,137 @@
+<h1 id="admonitions-call-outs">Admonitions (Call outs)</h1>
+
+<p>Admonitions, otherwise known as “call outs”, are a very useful documentation pattern. In Morea, you can create admonitions in a few different ways by combining Bootstrap alerts, font awesome icons, and markdown. Here are a few examples to get you started.</p>
+
+<p>The approach below involves the following:</p>
+
+<ol>
+  <li>Create a div with the Bootstrap alert class, and decide what kind of alert (warning, danger, etc.) The alert type sets the background color (danger is red, success is green, etc.)</li>
+  <li>Set markdown equal to “1” (so that the interior of the div is parsed as markdown),</li>
+  <li>Use a font awesome icon appropriate to the type of admonition. If you don’t like the ones I use below, find your own at the <a href="https://fontawesome.com/search?">Font Awesome Icon Search Page</a>.</li>
+  <li>Make a bold faced title with a horizontal line underneath.</li>
+  <li>Add the body text as markdown underneath.</li>
+</ol>
+
+<h2 id="danger">Danger</h2>
+
+<p>Here’s one way to produce a “danger” admonition, which is in red.</p>
+
+<hr />
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-danger"</span> <span class="na">role=</span><span class="s">"alert"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-solid fa-circle-exclamation fa-xl"</span><span class="nt">&gt;&lt;/i&gt;</span> **Danger: the following is not recommended.**
+<span class="nt">&lt;hr/&gt;</span>
+
+You really don't want to do the following:
+  * Stay up too late.
+  * Get up too early.
+  * Drink coffee after lunch. 
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>Which looks like this:</p>
+
+<div class="alert alert-danger" role="alert">
+  <p><i class="fa-solid fa-circle-exclamation fa-xl"></i> <strong>Danger: the following is not recommended.</strong></p>
+  <hr />
+
+  <p>You really don’t want to do the following:</p>
+  <ul>
+    <li>Stay up too late.</li>
+    <li>Get up too early.</li>
+    <li>Drink coffee after lunch.</li>
+  </ul>
+</div>
+
+<h2 id="warning">Warning</h2>
+
+<p>Less troublesome is a “warning”, which is in yellow.</p>
+
+<hr />
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-danger"</span> <span class="na">role=</span><span class="s">"alert"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-solid fa-circle-exclamation fa-xl"</span><span class="nt">&gt;&lt;/i&gt;</span> **Danger: the following is not recommended.**
+<span class="nt">&lt;hr/&gt;</span>
+
+You really don't want to do the following:
+  * Stay up too late.
+  * Get up too early.
+  * Drink coffee after lunch.
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>Which looks like this:</p>
+
+<div class="alert alert-warning" role="alert">
+  <p><i class="fa-solid fa-triangle-exclamation fa-xl"></i> <strong>Warning: the following is not recommended.</strong></p>
+  <hr />
+
+  <p>Unless you know better, you might want to avoid the following:</p>
+  <ul>
+    <li>Stay up too late.</li>
+    <li>Get up too early.</li>
+    <li>Drink coffee after lunch.</li>
+  </ul>
+</div>
+
+<h2 id="success">Success</h2>
+
+<p>To convey something positive, you can use the success alert, which is green:</p>
+
+<hr />
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span> <span class="na">role=</span><span class="s">"alert"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-solid fa-circle-check fa-xl"</span><span class="nt">&gt;&lt;/i&gt;</span> **Well done!**
+<span class="nt">&lt;hr/&gt;</span>
+
+You did everthing right!
+  * Went to bed early.
+  * Got up late.
+  * Switched to water after lunch.
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>Which looks like this:</p>
+
+<div class="alert alert-success" role="alert">
+  <p><i class="fa-solid fa-circle-check fa-xl"></i> <strong>Well done!</strong></p>
+  <hr />
+
+  <p>You did everthing right!</p>
+  <ul>
+    <li>Went to bed early.</li>
+    <li>Got up late.</li>
+    <li>Switched to water after lunch.</li>
+  </ul>
+</div>
+
+<h2 id="info">Info</h2>
+
+<p>Red, yellow, and green have connotations. A blue background is less judgemental:</p>
+
+<hr />
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-info"</span> <span class="na">role=</span><span class="s">"alert"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-solid fa-circle-info fa-xl"</span><span class="nt">&gt;&lt;/i&gt;</span> **For more information**
+<span class="nt">&lt;hr/&gt;</span>
+
+For more information, see the [Font Awesome Icon Search Page](https://fontawesome.com/search?)
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>Which looks like this:</p>
+
+<div class="alert alert-info" role="alert">
+  <p><i class="fa-solid fa-circle-info fa-xl"></i> <strong>For more information</strong></p>
+  <hr />
+
+  <p>For more information, see the <a href="https://fontawesome.com/search?">Font Awesome Icon Search Page</a></p>
+</div>
+
+<h2 id="others">Others</h2>
+
+<p>For the complete set of Bootstrap alert types, see <a href="https://getbootstrap.com/docs/5.2/components/alerts/#content">Bootstrap Alert Documentation</a>.</p>

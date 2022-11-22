@@ -1,0 +1,32 @@
+---
+title: "Data Viz"
+published: true
+morea_id: assessment-experience-3
+morea_summary: 
+morea_outcomes_assessed:
+ - outcome-module-3
+morea_type: assessment
+morea_labels:
+morea_start_date: 
+morea_sort_order: 2
+morea_chartjs_data: '[17, 2, 0]'
+morea_chartjs_labels: '["Excellent", "Satisfactory", "Unsatisfactory"]'
+morea_chartjs_colors: '["green", "yellow", "red"]'
+---
+# A01: Assessment of simple Javascript skills
+
+## Summary of results
+
+
+{%  include assessment-chartjs.html  %}
+
+## Feedback
+
+Some comments regarding this assessment:
+
+
+## Outcomes
+
+The following outcomes were assessed: {{ page.morea_outcomes_assessed_titles }}
+
+

@@ -1,0 +1,100 @@
+---
+title: An R Markdown document converted from "hypothesis_testing.ipynb"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+Let's use the code provided below to generate a dataset representing two populations, each sampled from a Guassian with a specific population mean. Here I am generating only 5 samples
+
+```{r}
+set.seed(110)
+data_1 = tibble(measure=rnorm(5, 10, 1))
+data_1$site_name <- 'Site 1'
+data_2 = tibble(measure=rnorm(5, 12, 1))
+data_2$site_name <- 'Site 2'
+complete_data = rbind(data_1, data_2)
+complete_data
+```
+
+* I compute the mean of the dataset above using the following code:
+  * feel free to deconstruct the code to see what each chunk does.
+
+```{r}
+mean(complete_data[complete_data$site_name == "Site 1", ]$measure)
+mean(complete_data[complete_data$site_name == "Site 2", ]$measure)
+```
+
+* Use the `tapply` function instead of the code above to compute the means samples from "Site 1" and those from site 2
+  * See tapply for help if needed.
+
+```{r}
+# Write your code here
+
+```
+
+Q.2 
+
+* Use the bootstrapping-procedure covered in class to assess whether there is a statistically significant difference between the data in `Site 1` and that in `Site 2`.
+
+Make sure you follow the approach discussed in class and which consists of:
+
+1. Selecting an appropriate test statistic
+2. Bootstrapping a a distribuion for the observed statistic under the null hypothesis
+3. Desciding whether to accept or reject the null based on the probability of the null
+4. provide a p-value to support your decision.
+
+```{r}
+set.seed(110)
+data_1 = tibble(measure=rnorm(40, 10, 1))
+data_1$site_name <- 'Site 1'
+data_2 = tibble(measure=rnorm(40, 13, 1))
+data_2$site_name <- 'Site 2'
+complete_data = rbind(data_1, data_2)
+```
+
+#### Q2.0 
+
+Complete the following by describing the null and the alternative hypotheses we are testing here.
+
+```{r}
+### Write your answer here
+```
+
+#### Q.2.1 
+
+Produce a graph similar the one below (geom_density) display the distributions. If you're using the same seed as mine, your graph will look exactly the same as the one below 
+
+![](https://www.dropbox.com/s/rz5jxm84kk8ac1m/dist.png?dl=1)
+
+```{r}
+# write your code here
+```
+
+Q2.2 Select a proper test statistic and produce a distribution of the statistic under the null hypothesis. Plot the data as both a histogram and density curves. Your graph may look like this.
+
+![](https://www.dropbox.com/s/3jarqg9swneai0r/mean_under_null.png?dl=1)
+
+```{r}
+# Write your code here
+```
+
+####  Q2.3. 
+
+Calculate and plot the observed statistic on the graph you created in Q.2.2. 
+
+```{r}
+#### Q2.4 
+compute the p-vlaue of the observed statistic under the null. What do you conclude about the hypotheses you enunciated in Q
+```
+
+#### Q.3 
+
+* The proportion of the of _P. lobata_, _M. capitata_ and _P. mendrina_ at a site X are c(0.60, 0.19, 0.21).
+* You surveyed site Y with different environmental conditions and obtains the following proportions for the three corals (0.61, 0.19, 0.20). Use the multinomial non-parametric hypotheses test to assess whether the proportions obtained at sites X and Y are statistically different.
+
+
+Although not explicitly required, your test should cover all the steps in Q2, i.e. appropriate graph(s) when possible, test statistics, and conclusion.
+

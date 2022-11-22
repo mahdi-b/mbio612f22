@@ -1,0 +1,153 @@
+---
+title: An R Markdown document converted from "experience_prob_distributions_solved.ipynb"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+Q0. Write a function that takes a vector and replaced it with the mean of the that vector
+  * Let's call that function `replace_na_mean`
+
+  * Try your function using the following snippet:
+
+```
+replace_na_mean(c(1, NA, 2, 3, 2, 2, NA))
+```
+
+```{r}
+replace_na_mean = function(x){
+    x[is.na(x)] = mean(x, na.rm = TRUE)
+    x
+}
+
+replace_na_mean(c(1, NA, 2, 3, 2, 2, NA))
+```
+
+Q1. Write a function that returns the sample space for the experiment consisting of samplign a 4 digit PIN
+  * Call your function get_all_perms
+
+  * Essentially, your function does not take any arguments but returns the sample space consisting of all the four digit numbers
+   
+  * The function `expand.grid` expand.grid creates a data frame from all combinations of the supplied vectors or factors. For example:
+ 
+  ```expand.grid(0:1, 0:1, 0:1)```
+
+* generates  
+
+![](https://www.dropbox.com/s/cnlt4fg8rxd01d6/expand.grid.png?dl=1)
+ 
+
+* Strategy, use `expand.grid` to generate the permutation for four verctation in the range 0:9
+  * Return the number of rows in that `data.frame`
+
+  
+
+```{r}
+get_all_perms  = function(){
+    digits = 0:9
+    all_perms = expand.grid(digits, digits, digits, digits)
+    dim(all_perms)[1]
+}
+```
+
+```{r}
+get_all_perms()
+```
+
+Q2. The function above is not very useful since it always computes the same thing, namely the number of possible permutation of digits. One way to make it more useful is by passing as an argument the number of digits to consider, i.e., the number of columns in `expand.grid`. Let;s call that param `size`, which by default should be `4`. For exmaple:
+
+*  `get_all_perms(size = 1 )` will return all the number of size 1 (0-9)
+*  `get_all_perms(size = 3 )` will return all the permutations of size 3 (000 - to 999)
+
+
+* Hint: `expand.grid` requires the number of input parameters to match the permutation length. We need to automate that so that the number of vectors passed as input matches the `size` values passed into `get_all_perms`
+  * We can do that using `replicate`
+  * `replicate(2, c(1,2,3), simplify=FALSE)` will repeat the vector `c(1,2,3)` twice
+    * We need to pass `replicate` the value `simplify=FALSE` so that it does not convert the output for us into a matrix
+  * Use pipe (`%>%`) pass the output of `replicate` into expand.grid
+  * Make sure replicated generate the correct input for exand.grid
+  
+
+```{r}
+library(magrittr)
+
+get_all_perms  = function(size=4){
+    digits=0:9
+    all_perms = replicate(size, digits, simplify=FALSE) %>% expand.grid()
+    dim(all_perms)[1]
+}
+
+get_all_perms(6)
+```
+
+Q3.
+
+* Given a fish disease that occurs with a probability of p= 0.43
+* You sampled 340 animals
+* How many of these animals should you expect to see the disease in?
+* Hint: you will need to compute the probability of each element of the sample space and find the value that has the highest probability
+
+```{r}
+x_vals = 0:340
+probs = mapply(dbinom, x_vals, size=340, prob=0.43)
+which.max(probs)
+```
+
+Q4. Plot the two following distributions:
+
+$$
+x \sim \mathcal{N}(10, 0.5) \\
+y \sim \mathcal{N}(10.2, 0.5) \\
+$$
+
+* Do you think the two distribtions are differnet?
+
+
+* Draw 40 values from the first distribution and store them in a variable called `x_sample`
+* Draw 40 values from the second distribution and store them in a variable called `y_sample`
+  * make sure you run the following line before you sample data
+  ```set.seed(42)```
+ 
+* Do a `t-`test to compute the `x_sample` and `y_sample`
+  * A `t-`test compares two vectors of values and predicts if the two vectors are from the same distribution
+  * The format for the t-test in R is
+ 
+ `t.test(x,y)` where `x` an `y` are the values we would like to compare.
+  * Look at the `p-value`, if it's smaller than say 0.05, then there is a statistically significant difference between the two datasets.
+
+* Does the t-test agree with your conclusion?
+
+```{r}
+
+x_vals = seq(8, 12, 0.05)
+probs_1 = mapply(dnorm, x_vals, mean = 10, sd = 0.5)
+probs_2 = mapply(dnorm, x_vals, mean = 10.2, sd = 0.5)
+
+
+ggplot() + 
+  geom_line(aes(x=x_vals, y=probs_1, color = "red"), size=2) +
+  geom_line(aes(x=x_vals, y=probs_2, color = "blue"), size=2) +
+  xlim(7.5,12.5)+
+  theme(axis.title.x = element_text(size = 24), axis.title.y = element_text(size = 24)) + 
+  theme(axis.text.x = element_text(size = 18), axis.text.y = element_text(size = 18)) + 
+  scale_color_manual(labels = c("(1, 2.3)", "(0, 1)"), values = c("blue", "red"))
+```
+
+```{r}
+set.seed(42)
+x_sample = rnorm(100, mean = 10, sd = 0.5)
+y_sample = rnorm(100, mean = 10.2, sd = 0.5)
+
+t.test(x_sample, y_sample)
+```
+
+Q5. Challenge
+
+* We have used the function `dnorm` to plot the bell-shaped curve.
+* given a distribution $ x \sim \mathcal{N}(10, 0.5)$, sum the values along the x-axis
+  * Use seq(5, 15, 0.05) to generate the x-axis values
+  * What do you notice?
+  * How do you fix that?
+

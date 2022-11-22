@@ -1,0 +1,65 @@
+<h1 id="a02-assess-your-ability-to-write-effectively-about-open-source-software">A02: Assess your ability to write effectively about open source software</h1>
+
+<h2 id="summary-of-results">Summary of results</h2>
+
+<p>Here are the results of this assessment, which took place on July 23, 2021:</p>
+
+<script src="//cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+
+<!---
+  If you want to include a chart, you must supply the following parameters in your page's YAML:
+    morea_chartjs_labels: An array of strings reprsenting each bar in the histogram.
+    morea_chartjs_data: An array of numbers, one per label.
+    morea_chartjs_colors: An array of colors, one per label
+  Note that the syntax is pretty weird: the YAML specifies a string which is inserted below and then evaluated.
+-->
+
+<div class="row">
+  <div class="col-md-6 col-lg-6">
+    <canvas id="assessment-open-source-software"></canvas>
+  </div>
+</div>
+
+<script>
+  const data = [20, 10, 4];
+  const colors = ["green", "yellow", "red"];
+  const labels = ["Excellent", "Satisfactory", "Unsatisfactory"];
+
+  // Get the context of the canvas element we want to select
+  var ctx = document.getElementById("assessment-open-source-software").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: { y: { beginAtZero: true } },
+      plugins: { legend: { display: false } }
+    }
+  });
+</script>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>Some comments regarding this assessment:</p>
+
+<ul>
+  <li>Over half of the class had an excellent ability to write effectively about open source software. That’s great!</li>
+  <li>Those who did not often forgot one or more of the following:
+    <ul>
+      <li>Reference to the Code of Ethics to support their claim.</li>
+      <li>Appropriate spelling and/or grammar.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="outcomes">Outcomes</h2>
+
+<p>The following outcomes were assessed:</p>
+

@@ -1,0 +1,42 @@
+<h1 id="github-gist-example">GitHub Gist Example</h1>
+
+<p>This page demonstrates the use of <a href="http://www.mathjax.org">GitHub Gists</a> for including code snippets in markdown files.</p>
+
+<p>The following markdown:</p>
+
+<p>{% gist philipmjohnson/5288814 %}</p>
+
+<p>produces this gist:</p>
+
+<noscript><pre>import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import play.test.FakeApplication;
+import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.inMemoryDatabase;
+import static play.test.Helpers.start;
+import static play.test.Helpers.stop;
+
+public class ModelTest {
+  private FakeApplication application;
+
+  @Before
+  public void startApp() {
+    application = fakeApplication(inMemoryDatabase());
+    start(application);
+  }
+
+  @After
+  public void stopApp() {
+    stop(application);
+  }
+
+  @Test
+  public void testModel() {
+    // put test code here
+  }
+}</pre></noscript>
+<script src="https://gist.github.com/philipmjohnson/5288814.js"> </script>
+
