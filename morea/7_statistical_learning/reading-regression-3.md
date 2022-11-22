@@ -9,5 +9,6 @@ morea_labels:
   - Jupyter Notebook
 ---
 
-[This notebook](./resources/Linear_Regression_Part_3.ipynb) introduces the third part of the linear regression introduction.
+[This notebook](./resources/Linear_Regression_Part_3.ipynb) introduces the third part of the 
+linear regression introduction.
  
